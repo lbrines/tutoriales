@@ -1,0 +1,14 @@
+configMapGenerator:
+- name: nginx-config
+  files:
+  - index.html
+
+bases:
+- ../base
+
+resources:
+- svc.yaml
+
+patchesStrategicMerge:
+- resources.yaml
+- image.yaml
