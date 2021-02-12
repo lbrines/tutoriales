@@ -1,7 +1,10 @@
 configMapGenerator:
-- name: nginx-config
+- name: nginx-index
   files:
   - index.html
+- name: nginx-config
+  files:
+  - default.conf
 
 bases:
 - ../base

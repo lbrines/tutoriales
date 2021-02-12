@@ -18,9 +18,26 @@ spec:
         ports:
         - containerPort: 80
         volumeMounts:
-        - name: nginx-html
-          mountPath: /usr/share/nginx/html
+        - name: nginx-config
+          mountPath: /etc/nginx/conf.d/
+        - name: nginx-index
+          mountPath: /var/www
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 30
+          periodSeconds: 5
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 30
+          periodSeconds: 10
       volumes:  
-      - name: nginx-html    
+      - name: nginx-index    
+        configMap:
+          name: nginx-index
+      - name: nginx-config  
         configMap:
           name: nginx-config
