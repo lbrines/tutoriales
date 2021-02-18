@@ -4,13 +4,14 @@
 Project structure:
 ```
 .
-├── docker-compose.yaml
-├── flask
-│   ├── Dockerfile
-│   ├── requirements.txt
-│   └── server.py
-└── nginx
-    └── nginx.conf
+Project
+├─── web
+├─── app
+│ ├─── Dockerfile
+│ ├─── requirements.txt
+│ └─── src
+│ └─── server.py
+└─── db
 
 ```
 
@@ -61,8 +62,9 @@ c2c703b66b19        nginx-flask-mysql_proxy     "nginx -g 'daemon of…"   39 se
 
 After the application starts, navigate to `http://localhost:80` in your web browser or run:
 ```
-$ curl localhost:8080
-<div>Blog post #1</div><div>Blog post #2</div><div>Blog post #3</div><div>Blog post #4</div>
+$ curl localhost:80
+{"response":"Hello from Docker!"}
+
 ```
 
 Stop and remove the containers

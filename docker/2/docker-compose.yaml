@@ -7,19 +7,30 @@ services:
     environment:
       - MYSQL_DATABASE=example
       - MYSQL_ROOT_PASSWORD=password
+    networks:
+      - net
 
   app:
     build: app
     restart: always
     secrets:
       - db-password
+    ports:
+      - 5000:5000
+    networks:
+      - net
 
   web:
     build: web
     restart: always
     ports:
       - 80:80
+    networks:
+      - net
   
 secrets:
   db-password:
     file: db/password.txt
+
+networks:
+  net:
