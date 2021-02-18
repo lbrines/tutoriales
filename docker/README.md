@@ -29,8 +29,10 @@ Primer contenedor
 `docker run hello-world`
 
 Imágenes
-`docker image ls #listar imagenes`
-`docker image rm borrar`
+Listar imagenes
+`docker image ls`
+Borrar imagenes
+`docker image rm ID`
 
 #### Contenedor
 Listar los contenedores activos
